@@ -1,6 +1,14 @@
-const rock = 1;
-const paper = 2;
-const scissors = 3;
+const rockButton = document.getElementById("rockButton");
+const paperButton = document.getElementById("paperButton");
+const scissorsButton = document.getElementById("scissorsButton");
 
-const choices = [rock, paper, scissors];
+rockButton.addEventListener("click", () => playGame("rock"));
+paperButton.addEventListener("click", () => playGame("paper"));
+scissorsButton.addEventListener("click", () => playGame("scissors"));
 
+
+function compChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    const random = Math.floor(Math.random() * 3);
+    return choices[random];
+}
