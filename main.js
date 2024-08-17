@@ -1,6 +1,7 @@
 const rockButton = document.getElementById("rockButton");
 const paperButton = document.getElementById("paperButton");
 const scissorsButton = document.getElementById("scissorsButton");
+const resetButton = document.getElementById("resetButton");
 
 
 
@@ -12,6 +13,7 @@ const scissorsButton = document.getElementById("scissorsButton");
 rockButton.addEventListener("click", () => gamePlay("rock"));
 paperButton.addEventListener("click", () => gamePlay("paper"));
 scissorsButton.addEventListener("click", () => gamePlay("scissors"));
+resetButton.addEventListener("click", () => resetGame());
 
 
 function compChoice() {
@@ -20,6 +22,26 @@ function compChoice() {
     return choices[random];
 }
 
+function resetGame() {
+    computerLives = 5;
+    playerLives = 5;
+    computerScore = 0;
+    playerScore = 0;
+    gameover = false;
+
+    const gameDecision = document.getElementById("gameDecision");
+    gameDecision.textContent = "";
+
+    const computerScoreElement = document.getElementById("computerScore");
+    const playerScoreElement = document.getElementById("playerScore");
+    computerScoreElement.textContent = "Computer Score: " + computerScore;
+    playerScoreElement.textContent = "Player Score: " + playerScore;
+
+    const playerLivesElement = document.getElementById("playerLives");
+    const computerLivesElement = document.getElementById("computerLives");
+    playerLivesElement.textContent = "Player Lives: " + playerLives;
+    computerLivesElement.textContent = "Computer Lives: " + computerLives;
+}
 
 
 
@@ -27,7 +49,12 @@ let computerLives = 5;
 let playerLives = 5;
 let computerScore = 0;
 let playerScore = 0;
+let gameover = false;
 function gamePlay(playerChoice){
+
+    if ( gameover ){
+        return;
+     };
     
     const computerChoice = compChoice();
     let result;
@@ -58,6 +85,20 @@ function gamePlay(playerChoice){
     playerLiveselement.textContent = "Player Lives" + " " + playerLives;
     computerLiveselement.textContent = "Computer Lives" + " " + computerLives;
 
+    if(playerLives === 0){
+        alert("Computer wins the game");
+        gameover = true;
+        resetGame();
+        
+    }
+
+    if(computerLives === 0){
+        alert("Player wins the game");
+        gameover = true;
+        resetGame();
+    }
+
   
+    
     
 }
