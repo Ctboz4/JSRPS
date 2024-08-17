@@ -4,11 +4,7 @@ const scissorsButton = document.getElementById("scissorsButton");
 
 
 
-const playerLives = document.getElementById("playerLives");
 
-
-
-const computerLives = document.getElementById("computerLives");
 
 
 
@@ -25,6 +21,10 @@ function compChoice() {
 }
 
 
+
+
+let computerLives = 5;
+let playerLives = 5;
 let computerScore = 0;
 let playerScore = 0;
 function gamePlay(playerChoice){
@@ -39,9 +39,9 @@ function gamePlay(playerChoice){
         (computerChoice === "scissors" && playerChoice === "paper") ||
         (computerChoice === "paper" && playerChoice === "rock")
     ) {
-        result = "Computer wins!"; computerScore++;
+        result = "Computer wins!"; computerScore++; playerLives--;
     } else {
-        result = "Player wins!" ; playerScore++;
+        result = "Player wins!" ; playerScore++; computerLives--;
     }
 
     const gameDecision = document.getElementById("gameDecision");
@@ -51,5 +51,13 @@ function gamePlay(playerChoice){
     const playerScoreElement = document.getElementById("playerScore");
     computerScoreElement.textContent = "Computer Score" + " " + computerScore;
     playerScoreElement.textContent = "Player score" + " " + playerScore;
+
+    const playerLiveselement = document.getElementById("playerLives");
+    const computerLiveselement = document.getElementById("computerLives");
+
+    playerLiveselement.textContent = "Player Lives" + " " + playerLives;
+    computerLiveselement.textContent = "Computer Lives" + " " + computerLives;
+
+  
     
 }
