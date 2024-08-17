@@ -1,5 +1,8 @@
 html{background-color: #dfcdc3;}
 
+
+button{border: none;}
+
 #playerScore, #computerScore, #playerLives, #computerLives{
     font-size: 20px;
     color: #5f6769;
@@ -14,6 +17,33 @@ html{background-color: #dfcdc3;}
     float: right;
     margin-top: -100px;
 
+}
+
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+
+#resetButton{padding: 10px 30px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transform: skew(-40deg, 0deg);
+    display: inline-block;
+    z-index: 10;
+    white-space: nowrap;
+    line-height: 24px;
+    transition: all 0.225s;
+    transition-delay: 0.45s;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    margin-left: 45%;
 }
 
 
