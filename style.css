@@ -1,4 +1,13 @@
+html{background-color: #dfcdc3;}
+
+#playerScore, #computerScore, #playerLives, #computerLives{
+    font-size: 20px;
+    color: #5f6769;
+    
+}
+
 #gameName{text-align: center;
+    color: #5f6769;
 }
 
 #computerInfo{
