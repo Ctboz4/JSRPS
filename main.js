@@ -10,6 +10,7 @@ const resetButton = document.getElementById("resetButton");
 
 
 
+
 rockButton.addEventListener("click", () => gamePlay("rock"));
 paperButton.addEventListener("click", () => gamePlay("paper"));
 scissorsButton.addEventListener("click", () => gamePlay("scissors"));
@@ -85,15 +86,22 @@ function gamePlay(playerChoice){
     playerLiveselement.textContent = "Player Lives" + " " + playerLives;
     computerLiveselement.textContent = "Computer Lives" + " " + computerLives;
 
+    
+
+    const gameResult = document.getElementById("gameResult");
+
+
+    gameResult.value = gameDecision.textContent;
+
     if(playerLives === 0){
-        alert("Computer wins the game");
+        gameResult.value = "Computer wins the game!";
         gameover = true;
         resetGame();
         
     }
 
     if(computerLives === 0){
-        alert("Player wins the game");
+        gameResult.value = "Player wins the game!";
         gameover = true;
         resetGame();
     }
